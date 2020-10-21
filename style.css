@@ -10,6 +10,7 @@ html, body {
 	font-size: 16px;
 	background-color: black;
 	color: white;
+	scroll-behavior: smooth;
 }
 
 a {
@@ -115,7 +116,7 @@ h1 {
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-image: url('assets/images/photo.jpg');
-	border-radius: 20%;
+	border-radius: 50px;
 }
 
 .about-me {
@@ -464,7 +465,7 @@ h1 {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 1088px) {
 	body {
-		background-color: blue;
+		background-color: #2148e6;
 	}
 
 	.short-desc {
