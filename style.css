@@ -112,11 +112,10 @@ h1 {
 #about-content-right {
 	display: inline-block;
 	width: 25%;
-	height: 300px;
+	height: 280px;
 	background-size: 100%;
-	background-repeat: no-repeat;
-	background-image: url('assets/images/photo.jpg');
-	border-radius: 50px;
+	background-image: url('assets/images/photo.jpeg');
+	border-radius: 50%;
 }
 
 .about-me {
@@ -191,18 +190,18 @@ h1 {
 /* Project Section */
 
 #projects {
-	height: 900px;
+	height: 1500px;
 }
 
 .work-content {
 	display: inline-flex;
 	margin: 10px;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	list-style-type: none;
-	border-radius: 20px;
+	border-radius: 20%;
 }
 
 #wrk-cnt-1 {
@@ -264,7 +263,7 @@ h1 {
 	text-align: center;
 	transition: .5s ease;
 	border : white solid 1px;
-	border-radius: 20px;
+	border-radius: 20%;
 }
 
 .work-detail {
@@ -339,10 +338,6 @@ h1 {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-	body {
-		background-color: maroon;
-	}
-
 	h1 {
 		font-size: 42px; 
 	}
@@ -372,7 +367,7 @@ h1 {
 	}
 
 	#projects {
-		height: 1200px;
+		height: 2000px;
 	}
 
 	#works > ul {
@@ -402,10 +397,6 @@ h1 {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 601px) and (max-width: 767px) {
-	body {
-		background-color: orange;
-	}
-
 	h1 {
 		font-size: 40px; 
 	}
@@ -435,7 +426,7 @@ h1 {
 	}
 
 	#projects {
-		height: 1400px;
+		height: 2000px;
 	}
 
 	#works > ul {
@@ -464,10 +455,6 @@ h1 {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 1088px) {
-	body {
-		background-color: #2148e6;
-	}
-
 	.short-desc {
 		margin: auto;
 		padding-top: 20%;
@@ -487,16 +474,12 @@ h1 {
 	}
 
     #projects {
-		height: 1800px;
+		height: 2000px;
 	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 1081px)  and (max-width: 1431px) {
-	body {
-		background-color: purple;
-	}
-
 	.short-desc {
 		margin: auto;
 		padding-top: 20%;
@@ -519,6 +502,6 @@ h1 {
 	}
 
     #projects {
-		height: 1200px;
+		height: 2000px;
 	}
 }
