@@ -3,7 +3,7 @@
    No javascript or other libs :)
 */
 
-html, body {
+html, body, ul {
 	margin: 0;
 	padding: 0;
 	font-family: 'DM Sans', sans-serif;
@@ -11,6 +11,7 @@ html, body {
 	background-color: black;
 	color: white;
 	scroll-behavior: smooth;
+	box-sizing: border-box;
 }
 
 a {
@@ -18,30 +19,103 @@ a {
 	color: white;
 }
 
-h1 {
-	font-weight: bold;
-	font-size: 48px;
+#about h1, #projects h1, #brands h1 {
+	text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 /* Navbar Section */
-
 .nav {
-	padding: 20px 40px;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: black;
+    color: white;
+    position: relative;
+    z-index: 10;
 }
 
-.nav-content {
-	display: inline;
+/* Navigation Title */
+.nav-content:first-child a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.nav-content:last-child > ul {
-	margin: 0;
-	float: right;
+/* Hide the menu list by default */
+.nav-content:last-child ul {
+    display: none;
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Fullscreen height */
+    background-color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.nav-content:last-child > ul li {
-	display: inline-block;
-	padding: 0 10px;
-	list-style-type: none;
+/* Menu items styling */
+.nav-content:last-child ul li {
+    padding: 20px 0;
+}
+
+.nav-content:last-child ul a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-content:last-child ul a:hover {
+    color: #aaaaaa;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Checkbox hack for toggling menu */
+#menu-toggle {
+    display: none;
+}
+
+/* Display menu when checkbox is checked */
+#menu-toggle:checked ~ .nav-content:last-child ul {
+    display: flex;
+}
+
+/* Animate hamburger icon to 'X' */
+#menu-toggle:checked ~ .hamburger .bar1 {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .hamburger .bar2 {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger .bar3 {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-content li:hover {
@@ -68,7 +142,6 @@ h1 {
 }
 
 /* Home Section */
-
 .short-desc {
 	margin: auto;
 	padding-top: 20%;
@@ -100,22 +173,45 @@ h1 {
 
 /* About Section */
 
-#about-content, #project-content, #contact-content {
+/* Spacing between sections */
+#about, #projects, #brands, #contact {
+    width: 100%;
+    margin-bottom: 40px; /* Adds space below the section */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+}
+
+#about-content, #project-content, #brand-content, #contact-content {
 	padding: 0 10%;
+    width: 90%; /* Responsive width */
+    max-width: 1200px; /* Ensures the content doesn't stretch too much */
+}
+
+#about-content {
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px; /* Adds spacing between left and right content */
 }
 
 #about-content-left {
-	display: inline-block;
-	width: 70%;
+	flex: 1; /* Takes up available space */
+    min-width: 300px; /* Ensures it doesn't shrink too small */
 }
 
 #about-content-right {
-	display: inline-block;
-	width: 25%;
-	height: 280px;
-	background-size: 100%;
-	background-image: url('assets/images/photo.jpeg');
-	border-radius: 50%;
+	display: flex; /* Aligns content dynamically */
+    justify-content: center;
+    align-items: center;
+    width: 280px; /* Fixed size for the photo */
+    height: 280px;
+    background-size: cover; /* Ensures the image fits properly */
+    background-image: url('assets/images/photo.jpeg');
+    border-radius: 50%; /* Makes the photo perfectly circular */
+    overflow: hidden; /* Prevents any overflow beyond the circle */
+    margin: 20px auto; /* Adds spacing and centers on smaller screens */
 }
 
 .about-me {
@@ -189,93 +285,107 @@ h1 {
 
 /* Project Section */
 
-#projects {
-	height: 1500px;
+/* Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+    gap: 20px; /* Space between cards */
+    justify-items: center; /* Align cards horizontally to center */
+    align-items: center; /* Align cards vertically to center */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Ensure the grid container is centered within the parent container */
+    padding: 20px; /* Optional padding around the grid */
 }
 
-.work-content {
-	display: inline-flex;
-	margin: 10px;
+/* Card Wrapper */
+.card-wrapper {
+    text-decoration: none; /* Remove underline from links */
+    display: block;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.05); /* Hover effect */
+}
+
+/* Card */
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+	border-radius: 8px;
+}
+
+/* Overlay (Top Left) */
+.overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FFC107;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Transparent Bottom Section */
+.bottom-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Transparent background */
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+/* Effect Icon */
+.effect-icon {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+/* Effect Name */
+.effect-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.brand-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 40px;
+	justify-items: center;
+  }
+  
+  .brand-grid img {
 	width: 300px;
-	height: 300px;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	list-style-type: none;
-	border-radius: 20%;
-}
-
-#wrk-cnt-1 {
-	background-image: url('assets/images/works-1.jpg');
-}
-
-#wrk-cnt-2 {
-	background-image: url('assets/images/works-2.jpg');
-}
-
-#wrk-cnt-3 {
-	background-image: url('assets/images/works-3.jpg');
-}
-
-#wrk-cnt-4 {
-	background-image: url('assets/images/works-4.jpg');
-}
-
-#wrk-cnt-5 {
-	background-image: url('assets/images/works-5.jpg');
-}
-
-#wrk-cnt-6 {
-	background-image: url('assets/images/works-6.jpg');
-}
-
-#wrk-cnt-7 {
-	background-image: url('assets/images/works-7.jpg');
-}
-
-#wrk-cnt-8 {
-	background-image: url('assets/images/works-8.jpg');
-}
-
-#wrk-cnt-9 {
-	background-image: url('assets/images/works-9.jpg');
-}
-
-#wrk-cnt-10 {
-	background-image: url('assets/images/works-10.jpg');
-}
-
-#wrk-cnt-11 {
-	background-image: url('assets/images/works-11.jpg');
-}
-
-#wrk-cnt-12 {
-	background-image: url('assets/images/works-12.jpg');
-}
-
-.work-content:hover .work-detail, .work-content:hover .project-detail{
-	opacity: 1;
-	cursor: pointer;
-}
-
-.work-detail, .project-detail {
-	padding: 40% 5% 0% 5%;
-	opacity: 0;
-	text-align: center;
-	transition: .5s ease;
-	border : white solid 1px;
-	border-radius: 20%;
-}
-
-.work-detail {
-	background-color: #121212;
-}
-
-.project-detail {
-	background-color: #335c7a;
-}
+	max-width: 100%;
+	height: auto;
+  }
 
 /* Contact Section */
-
 #contact {
 	height: 400px;
 }
@@ -336,10 +446,13 @@ h1 {
 	height: 15px;
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 481px) and (max-width: 600px){
+	.brand-grid {
+	  grid-template-columns: repeat(2, 1fr);
+	}
+  
 	h1 {
-		font-size: 42px; 
+		font-size: 18px; 
 	}
 
 	#home, #about {
@@ -392,8 +505,7 @@ h1 {
 	#copyright {
 		text-align: left;
 	}
-
-}
+  }	
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 601px) and (max-width: 767px) {
@@ -417,16 +529,22 @@ h1 {
 		font-size: 24px;
 	}
 
-	#about-content-right, #back-to-top  {
-		display: none;
-	}
+	#about-content {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center-align text */
+    }
+
+    #about-content-right {
+        width: 200px; /* Smaller photo size */
+        height: 200px;
+    }
 
 	#about-content-left {
 		width: 100%;
 	}
 
 	#projects {
-		height: 2000px;
+		height: 1500px;
 	}
 
 	#works > ul {
@@ -444,6 +562,18 @@ h1 {
 		font-size: 14px;
 	}
 
+	.overlay {
+        font-size: 10px;
+    }
+
+    .effect-name {
+        font-size: 12px;
+    }
+
+	.brand-grid {
+		grid-template-columns: repeat(3, 1fr);
+	  }
+
 	h2 {
 		font-size: 20px;
 	}
@@ -455,6 +585,26 @@ h1 {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 1088px) {
+	.hamburger {
+        display: none; /* Hide hamburger on larger screens */
+    }
+
+    .nav-content:last-child ul {
+        display: flex;
+        position: static;
+        height: auto;
+        background: none;
+        flex-direction: row;
+    }
+
+    .nav-content:last-child ul li {
+        padding: 0 10px;
+    }
+
+    .nav-content:last-child ul a {
+        font-size: 1rem;
+    }
+
 	.short-desc {
 		margin: auto;
 		padding-top: 20%;
@@ -465,17 +615,10 @@ h1 {
 		width: 100%;
 	}
 
-	#about-content-right {
-		display: none;
-	}
-
 	#about-content-left {
 		width: 100%;
 	}
 
-    #projects {
-		height: 2000px;
-	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -493,7 +636,7 @@ h1 {
 	#about-content-right {
 		width: 28%;
 		height: 300px;
-		border-radius: 0;
+		border-radius: 50%;
 	}
 
 	#works ul {
@@ -501,7 +644,4 @@ h1 {
 		margin: 0 2%;
 	}
 
-    #projects {
-		height: 2000px;
-	}
 }

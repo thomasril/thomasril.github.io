@@ -4,6 +4,7 @@
 	<title>Thomas Asril</title>
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel = "icon" href="assets/icons/thomas.ico">
 </head>
@@ -13,6 +14,15 @@
 		<div class = "nav-content">
 			<a href="https://thomasril.github.io/">Thomas Asril</a>
 		</div>
+
+		<!-- Hidden Checkbox -->
+		<input type="checkbox" id="menu-toggle">
+		<!-- Hamburger Icon -->
+		<label for="menu-toggle" class="hamburger">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</label>
 
 		<div class = "nav-content">
 			<ul>
@@ -29,9 +39,10 @@
 		<div class = "short-desc">
 			<div>Hello, I am </div>
 			<div class = "animated-text">
+				<div class = "line">Thomas Asril 🙋🏻‍♂️</div>
 				<div class = "line">Software Engineer 💻</div>
 				<div class = "line">Effect House Ambassador 🪄</div>
-				<div class = "line">Meta Spark Creator 🎭</div>
+				<div class = "line">Lens Studio Creator 🕶️</div>
 			</div>
 		</div>
 	</div>
@@ -57,18 +68,8 @@
 						<button class ="skill-btn">Go</button>
 						<button class ="skill-btn">Meta Spark</button>
 						<button class ="skill-btn">Effect House</button>
+						<button class ="skill-btn">Lens Studio</button>
 					</span>
-				</div>
-
-				<div class = "about-detail">
-					<span class = "about-title">Education</span>
-					<span class = "about-desc">Master Computer Science @BINUS University (2019-2020)</span>
-				</div>
-
-				
-				<div class = "about-detail">
-					<span class = "about-title"> Languages </span>
-					<span class = "about-desc"> Indonesian 👍, English 👌</span>
 				</div>
 
 				<div class = "about-detail">
@@ -86,48 +87,91 @@
 	<!-- Projects -->
 	<div id = "projects">
 		<div id = project-content>
-			<h1> WORKS & PROJECTS </h1>
+			<h1> WORKS </h1>
 
-			<div id = "works">
-				<ul>
-					<li id = "wrk-cnt-1" class ="work-content" href="https://facebook.com">
-						<span class = "work-detail"><a href="http://www.warse.org/IJETER/static/pdf/file/ijeter60862020.pdf">Aug '16 - Became Teaching Assistant @ BINUS University 👔💼</a></span>
-					</li>
-					<li id = "wrk-cnt-2" class ="work-content">
-						<span class = "project-detail"><a href="https://play.google.com/store/apps/details?id=bluejack162.edu.swalleto">July '17 - Built Swalleto: Expense Tracker 👩🏻‍💻</a></span>
-					</li>
-					<li id = "wrk-cnt-3" class ="work-content">
-						<span class = "project-detail">Jan '18 - Built Code Plagiarism Checker for Practicum Exam 👩🏻‍💻 </span>
-					</li>
-					<li id = "wrk-cnt-4" class ="work-content">
-						<span class = "work-detail">Feb '18 - Promoted to Database Administrator @ BINUS University 💼💼</span>
-					</li>
-					<li id = "wrk-cnt-5" class ="work-content">
-						<span class = "project-detail">March '18 - Became TOP 50 Line Bot Designer in LINE CREATIVE 2018 🎖</span>
-					</li>
-					<li id = "wrk-cnt-6" class ="work-content">	
-						<span class = "project-detail">Dec '18 - Built Omega: Competitive Programming Web Application for Bachelor Degree 🎓</span>
-					</li>
-					<li id = "wrk-cnt-7" class ="work-content">
-						<span class = "project-detail">Jan '19 - Built Internal Teaching Allocation Web Application for Regina Pacis High School 👩🏻‍💻 </span>
-					</li>
-					<li id = "wrk-cnt-8" class ="work-content">
-						<span class = "work-detail">Feb '19 - Promoted to Assistant Development Officer @ BINUS University 💼💼💼</span>
-					</li>
-					<li id = "wrk-cnt-9" class ="work-content">
-						<span class = "project-detail">June '19 - Built Industrial Supplies Web Application  👩🏻‍💻 </span>
-					</li>
-					<li id = "wrk-cnt-10" class ="work-content">
-						<span class = "project-detail">Sep '19 - Created First Instagram Filters 🎭</span>
-					</li>
-					<li id = "wrk-cnt-11" class ="work-content">
-						<span class = "work-detail">Feb '20 - Promoted to Academic Development Section Head @ BINUS University 💼💼💼💼</span>
-					</li>
-					<li id = "wrk-cnt-12" class ="work-content">
-						<span class = "project-detail"><a href="http://www.warse.org/IJETER/static/pdf/file/ijeter60862020.pdf">Sep '20 - Built Student Study Period Predictor using Supervised Learning for Master Degree 🎓🎓</a></span>
-					</li>
-				</ul>
+			<div class="card-grid">
+				<!-- Card 1 -->
+				<a href="https://example.com/link1" class="card-wrapper">
+					<div class="card">
+						<img src="assets/images/test.gif" alt="Virgin Voyages">
+						<div class="overlay">Virgin Voyages</div>
+						<div class="bottom-section">
+							<div class="effect-icon" style="background-image: url('assets/images/icon1.png');"></div>
+							<div class="effect-name">STAR SIGN SEEKER</div>
+						</div>
+					</div>
+				</a>
+		
+				<!-- Card 2 -->
+				<a href="https://example.com/link2" class="card-wrapper">
+					<div class="card">
+						<img src="assets/images/test.gif" alt="Effect 2">
+						<div class="overlay">Effect 2</div>
+						<div class="bottom-section">
+							<div class="effect-icon" style="background-image: url('assets/images/icon2.png');"></div>
+							<div class="effect-name">GALAXY ADVENTURE</div>
+						</div>
+					</div>
+				</a>
+		
+				<!-- Card 3 -->
+				<a href="https://example.com/link3" class="card-wrapper">
+					<div class="card">
+						<img src="assets/images/test.gif" alt="Effect 3">
+						<div class="overlay">Effect 3</div>
+						<div class="bottom-section">
+							<div class="effect-icon" style="background-image: url('assets/images/icon3.png');"></div>
+							<div class="effect-name">SPACE EXPLORER</div>
+						</div>
+					</div>
+				</a>
+		
+				<!-- Card 4 -->
+				<a href="https://example.com/link4" class="card-wrapper">
+					<div class="card">
+						<img src="assets/images/test.gif" alt="Effect 4">
+						<div class="overlay">Effect 4</div>
+						<div class="bottom-section">
+							<div class="effect-icon" style="background-image: url('assets/images/icon4.png');"></div>
+							<div class="effect-name">UNDERWATER MAGIC</div>
+						</div>
+					</div>
+				</a>
 			</div>
+		</div>
+	</div>
+
+	<!-- Collaborations -->
+	<div id = "brands">
+		<div id = brand-content>
+			<h1> COLLABORATIONS </h1>
+
+			<div class="brand-grid">
+				<img src="./assets/images/Brands/01_tiktok.png" alt="Tiktok">
+				<img src="./assets/images/Brands/02_meta.png" alt="Meta">
+				<img src="./assets/images/Brands/03_netflix.png" alt="Netflix">
+				<img src="./assets/images/Brands/04_hoyoverse.png" alt="Hoyoverse">
+				<img src="./assets/images/Brands/05_moonton.png" alt="Moonton">
+				<img src="./assets/images/Brands/06_samsung.png" alt="Samsung">
+				<img src="./assets/images/Brands/07_sonymusic.png" alt="Sony">
+				<img src="./assets/images/Brands/08_warner.png" alt="Warner">
+				<img src="./assets/images/Brands/09_mymusicrecords.png" alt="Mymusic">
+				<img src="./assets/images/Brands/10_inspiremusic.png" alt="Inspire Music">
+				<img src="./assets/images/Brands/11_shopee.png" alt="Shopee">
+				<img src="./assets/images/Brands/12_tiktokshop.png" alt="TikTok Shop">
+				<img src="./assets/images/Brands/13_syncfest.png" alt="Sync Fest">
+				<img src="./assets/images/Brands/14_tiktoklive.png" alt="TikTok LIVE">
+				<img src="./assets/images/Brands/15_lingkarfilm.png" alt="Lingkar Film">
+				<img src="./assets/images/Brands/16_BAF.png" alt="BAF">
+				<img src="./assets/images/Brands/17_dana.png" alt="Dana">
+				<img src="./assets/images/Brands/18_ibbi.png" alt="IBBI University">
+				<img src="./assets/images/Brands/19_unilever.png" alt="Unilever">
+				<img src="./assets/images/Brands/20_somethinc.png" alt="Somethinc">
+				<img src="./assets/images/Brands/21_tavi.png" alt="World of Tavi">
+				<img src="./assets/images/Brands/22_coolvita.png" alt="Coolvita">
+				<img src="./assets/images/Brands/23_johnwest.png" alt="John West">
+				<img src="./assets/images/Brands/24_kelaya.png" alt="Kelaya">
+			  </div>
 
 		</div>
 	</div>
