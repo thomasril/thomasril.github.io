@@ -14,21 +14,19 @@ html, body, ul {
 	box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 a {
 	text-decoration: none;
 	color: white;
 }
 
-#about h1, #projects h1, #brands h1 {
-	text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
 /* Navbar Section */
 .nav {
-	display: flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
@@ -36,6 +34,10 @@ a {
     color: white;
     position: relative;
     z-index: 10;
+}
+
+.nav-content {
+	display: inline;
 }
 
 /* Navigation Title */
@@ -46,45 +48,34 @@ a {
     font-weight: bold;
 }
 
-/* Hide the menu list by default */
-.nav-content:last-child ul {
-    display: none;
-    list-style: none;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Fullscreen height */
-    background-color: black;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Menu items styling */
+.nav-content:last-child > ul {
+	margin: 0;
+	float: right;
 }
 
-/* Menu items styling */
-.nav-content:last-child ul li {
-    padding: 20px 0;
+.nav-content:last-child > ul li {
+	display: inline-block;
+	padding: 10px;
+	list-style-type: none;
 }
 
 .nav-content:last-child ul a {
     text-decoration: none;
     color: white;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1rem;
     display: block;
     transition: color 0.3s ease;
 }
 
 .nav-content:last-child ul a:hover {
     color: #aaaaaa;
+	cursor: pointer;
+
 }
 
-/* Hamburger Icon */
 .hamburger {
-    display: block;
-    cursor: pointer;
-    z-index: 20;
+	display: none; /* Hide hamburger on larger screens */
 }
 
 .hamburger div {
@@ -118,10 +109,6 @@ a {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-.nav-content li:hover {
-	cursor: pointer;
-}
-
 .links::after {
     display: block;
     width: 0;
@@ -135,10 +122,27 @@ a {
     width: 100%;
 }
 
-#home, #about, #projects, #contact {
+/* Spacing between sections */
+#home, #about, #projects, #brands, #contact {
+    width: 100%;
 	margin: auto;
-	width: 100%;
-	height: 700px;
+    margin-bottom: 40px; /* Adds space below the section */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    min-height: 100vh; /* Adjusts to full screen height */
+}
+
+#about-content, #project-content, #brand-content, #contact-content {
+	padding: 0 10%;
+    width: 90%; /* Responsive width */
+    max-width: 1200px; /* Ensures the content doesn't stretch too much */
+}
+
+#about h1, #projects h1, #brands h1 {
+	text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+    color: #ffffff;
 }
 
 /* Home Section */
@@ -172,21 +176,6 @@ a {
 }
 
 /* About Section */
-
-/* Spacing between sections */
-#about, #projects, #brands, #contact {
-    width: 100%;
-    margin-bottom: 40px; /* Adds space below the section */
-    display: flex;
-    justify-content: center; /* Centers content horizontally */
-}
-
-#about-content, #project-content, #brand-content, #contact-content {
-	padding: 0 10%;
-    width: 90%; /* Responsive width */
-    max-width: 1200px; /* Ensures the content doesn't stretch too much */
-}
-
 #about-content {
 	display: flex;
     flex-direction: row;
@@ -228,18 +217,18 @@ a {
 
 .tooltip .tooltiptext {
 	position: absolute;
-  	margin-left: -60px;
-	padding: 5px 0;
-	width: 130px;
-	visibility: hidden;
-	background-color: #121212;
-	color: white;
-	border-radius: 6px;
-  	font-size: 14px;
+	margin-left: -60px;
+  	padding: 5px 0;
+  	width: 130px;
+  	visibility: hidden;
+  	background-color: #121212;
+  	color: white;
+  	border-radius: 6px;
+	font-size: 14px;
 	text-align: center;
-  	z-index: 1;
-  	bottom: 100%;
-  	left: 50%;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%;
 }
 
 .tooltip .tooltiptext::after {
@@ -288,14 +277,8 @@ a {
 /* Grid Layout */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
-    gap: 20px; /* Space between cards */
-    justify-items: center; /* Align cards horizontally to center */
-    align-items: center; /* Align cards vertically to center */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto; /* Ensure the grid container is centered within the parent container */
-    padding: 20px; /* Optional padding around the grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 /* Card Wrapper */
@@ -446,155 +429,187 @@ a {
 	height: 15px;
 }
 
-@media only screen and (min-width: 481px) and (max-width: 600px){
-	.brand-grid {
-	  grid-template-columns: repeat(2, 1fr);
-	}
-  
-	h1 {
-		font-size: 18px; 
+/* Small devices (Iphone, Samsung, 360px and up) */
+@media screen and (min-width: 360px) and (max-width: 767px) {
+
+	/* Show Hamburger Menu */
+	.hamburger {
+		display: block;
+		cursor: pointer;
+		position: fixed;  /* Position it relative to the navbar */
+        top: 20px; /* Distance from the top */
+        right: 40px; /* Distance from the right */
+        z-index: 20; /* Ensure it stays on top */
 	}
 
-	#home, #about {
-		height: 600px;
+	/* Fullscreen menu when toggled */
+    #menu-toggle:checked ~ .nav-content:last-child ul {
+        display: flex;
+        position: fixed; /* Fullscreen overlay */
+        top: 0;
+        left: 0;
+        width: 100vw; /* Full width */
+        height: 100vh; /* Full height */
+        background-color: rgba(0, 0, 0, 0.8); /* Overlay color */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 15;
+    }
+
+	.nav-content:last-child ul a {
+        font-size: 2.5rem; /* Larger font size for readability */
+        margin: 20px 0; /* Spacing between menu items */
+    }
+
+    /* Navigation Menu Toggling */
+    .nav-content:last-child ul {
+        display: none; /* Menu hidden by default */
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+    }
+
+	#home, #about, #projects, #brands, #contact {
+		min-height: 60vh; /* Adjusts to full screen height */
 	}
 
+	#about h1, #projects h1, #brands h1, h1 {
+        font-size: 1.5rem;
+    }
+
+	/* Home Section */
 	.short-desc {
 		margin: auto;
-		padding-top: 20%;
-		width: 90%;
-	}
-
-	.about-me {
-		margin-bottom: 2%;
-		width: 100%;
-		font-size: 20px;
-	}
-
-	#about-content-right, #back-to-top  {
-		display: none;
-	}
-
-	#about-content-left {
-		width: 100%;
-	}
-
-	#projects {
-		height: 2000px;
-	}
-
-	#works > ul {
-		padding: 0px;
-		margin: 0 5%;
-	}
-
-	.work-content {
-		width: 150px;
-		height: 150px;
-	}
-
-	.work-detail, .project-detail {
-		padding: 20% 5% 0% 5%;
-		font-size: 14px;
-	}
-
-	h2 {
-		font-size: 20px;
-	}
-
-	#copyright {
-		text-align: left;
-	}
-  }	
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 601px) and (max-width: 767px) {
-	h1 {
-		font-size: 40px; 
-	}
-
-	#home, #about {
-		height: 600px;
-	}
-
-	.short-desc {
-		margin: auto;
-		padding-top: 20%;
 		width: 80%;
 	}
 
-	.about-me {
-		margin-bottom: 2%;
-		width: 100%;
+	.short-desc > div {
+		display: inline-block;
+		height: 24px;
+		overflow: hidden;
 		font-size: 24px;
+		line-height: 24px;
 	}
 
-	#about-content {
-        flex-direction: column; /* Stack content vertically */
-        text-align: center; /* Center-align text */
+	@keyframes anim {
+		0% { margin-top: 0; }
+		16% { margin-top: -25px ; }
+		33% { margin-top: -50px; }
+		50% { margin-top: -70px; }
+		66% { margin-top: -50px; }
+		82% { margin-top: -25px; }
+		100% { margin-top: 0; }
+	}
+
+    /* Further Reduce Card Grid Size */
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 5px;
     }
 
-    #about-content-right {
-        width: 200px; /* Smaller photo size */
-        height: 200px;
+    /* Further Simplify Menu */
+    .nav-content:last-child ul a {
+        font-size: 1.5rem;
     }
 
-	#about-content-left {
+	.about-me, .about-detail {
+		font-size: 1rem;
 		width: 100%;
+		text-align: center;
 	}
 
-	#projects {
-		height: 1500px;
-	}
-
-	#works > ul {
-		padding: 0px;
-		margin: 0 5%;
-	}
-
-	.work-content {
-		width: 180px;
-		height: 180px;
-	}
-
-	.work-detail, .project-detail {
-		padding: 25% 5% 0% 5%;
-		font-size: 14px;
-	}
-
-	.overlay {
-        font-size: 10px;
+	#about-content-right {
+        display: none;
     }
 
-    .effect-name {
-        font-size: 12px;
+	.card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller cards */
+        gap: 10px; /* Smaller gap between cards */
     }
 
 	.brand-grid {
-		grid-template-columns: repeat(3, 1fr);
-	  }
-
-	h2 {
-		font-size: 20px;
-	}
-
-	#copyright {
-		text-align: left;
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 1088px) {
-	.hamburger {
-        display: none; /* Hide hamburger on larger screens */
+@media screen and (min-width: 768px) and (max-width: 1088px) {
+	/* Show Hamburger Menu */
+    .hamburger {
+		display: block;
+		cursor: pointer;
+		position: absolute; /* Position it relative to the navbar */
+        top: 20px; /* Distance from the top */
+        right: 40px; /* Distance from the right */
+        z-index: 20; /* Ensure it stays on top */
+	}
+
+	/* Navigation Menu Toggling */
+    .nav-content:last-child ul {
+        display: none; /* Menu hidden by default */
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
     }
 
-    .nav-content:last-child ul {
-        display: flex;
-        position: static;
-        height: auto;
-        background: none;
-        flex-direction: row;
+   /* Fullscreen menu when toggled */
+   #menu-toggle:checked ~ .nav-content:last-child ul {
+	display: flex;
+	position: fixed; /* Fullscreen overlay */
+	top: 0;
+	left: 0;
+	width: 100vw; /* Full width */
+	height: 100vh; /* Full height */
+	background-color: black; /* Overlay background */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 15;
+}
+
+	/* Styling for menu links */
+	.nav-content:last-child ul a {
+		font-size: 3.5rem; /* Larger font size for better scaling */
+		margin: 30px 0; /* Space between links */
+	}
+
+    /* Menu Items */
+    .nav-content:last-child ul li {
+        padding: 15px 0;
+    }
+
+    /* Hide Profile Picture */
+    #about-content-right {
+        display: none; /* Profile picture disappears */
+    }
+
+    /* Card Grid - Smaller Columns */
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller card size */
+        gap: 10px; /* Less spacing */
+    }
+
+    /* About Section Adjustments */
+    #about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about-content-left {
+        width: 100%; /* Full width for text */
     }
 
     .nav-content:last-child ul li {
@@ -619,29 +634,8 @@ a {
 		width: 100%;
 	}
 
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 1081px)  and (max-width: 1431px) {
-	.short-desc {
-		margin: auto;
-		padding-top: 20%;
-		width: 70%;
-	}
-
-	.about-me {
-		width: 100%;
-	}
-
-	#about-content-right {
-		width: 28%;
-		height: 300px;
-		border-radius: 50%;
-	}
-
-	#works ul {
-		padding: 0;
-		margin: 0 2%;
-	}
+	.brand-grid {
+		grid-template-columns: repeat(4, 1fr);
+	  }
 
 }
