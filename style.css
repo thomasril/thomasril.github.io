@@ -123,7 +123,7 @@ a {
 }
 
 /* Spacing between sections */
-#home, #about, #projects, #brands, #contact {
+#home, #about, #works, #brands{
     width: 100%;
 	margin: auto;
     margin-bottom: 40px; /* Adds space below the section */
@@ -132,13 +132,13 @@ a {
     min-height: 100vh; /* Adjusts to full screen height */
 }
 
-#about-content, #project-content, #brand-content, #contact-content {
+#about-content, #work-content, #brand-content, #contact-content {
 	padding: 0 10%;
-    width: 90%; /* Responsive width */
+    width: 80%; /* Responsive width */
     max-width: 1200px; /* Ensures the content doesn't stretch too much */
 }
 
-#about h1, #projects h1, #brands h1 {
+#about h1, #works h1, #brands h1, #services h1 {
 	text-align: center;
     font-size: 2.5rem;
     margin-bottom: 5%;
@@ -148,7 +148,6 @@ a {
 /* Home Section */
 .short-desc {
 	margin: auto;
-	padding-top: 20%;
 	width: 50%;
 }
 
@@ -272,7 +271,7 @@ a {
 	border-style: none;
 }
 
-/* Project Section */
+/* Works Section */
 
 /* Grid Layout */
 .card-grid {
@@ -312,17 +311,22 @@ a {
 }
 
 /* Overlay (Top Left) */
-.overlay {
+.overlay, .overlay-effects {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #FFC107;
-    color: #000;
-    padding: 5px 10px;
+    background-color: #ffffff;
+    color: #ad0000;
+    padding: 5px;
     border-radius: 10px;
     font-size: 12px;
     font-weight: bold;
     z-index: 2;
+}
+
+.overlay-effects {
+	background-color: #004aad;
+	color: #FFFFFF;
 }
 
 /* Transparent Bottom Section */
@@ -362,17 +366,51 @@ a {
 	justify-items: center;
   }
   
-  .brand-grid img {
+.brand-grid img {
 	width: 300px;
 	max-width: 100%;
 	height: auto;
-  }
-
-/* Contact Section */
-#contact {
-	height: 400px;
 }
 
+/* Services Section */
+#services {
+	text-align: center;
+	padding: 40px 20px;
+}
+  
+.services-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+  
+.service-card {
+	background-color: #1e1e1e;
+	border-radius: 10px;
+	padding: 20px;
+	max-width: 300px;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+  
+.service-icon {
+	font-size: 3rem;
+	margin-bottom: 15px;
+}
+  
+.service-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+  
+.service-description {
+	font-size: 1rem;
+	color: #b3b3b3;
+}  
+
+/* Contact Section */
 #contact-content {
 	margin: 5%;
 	padding: 5%;
@@ -431,7 +469,6 @@ a {
 
 /* Small devices (Iphone, Samsung, 360px and up) */
 @media screen and (min-width: 360px) and (max-width: 767px) {
-
 	/* Show Hamburger Menu */
 	.hamburger {
 		display: block;
@@ -476,13 +513,21 @@ a {
         z-index: 10;
     }
 
-	#home, #about, #projects, #brands, #contact {
-		min-height: 60vh; /* Adjusts to full screen height */
+	#home, #about, #works, #brands{
+		min-height: 40vh; /* Adjusts to full screen height */
 	}
 
-	#about h1, #projects h1, #brands h1, h1 {
+	#contact {
+		min-height: 300px; /* Adjusts to full screen height */
+	}
+
+	#about h1, #works h1, #brands h1, #services h1, #contact h1 {
         font-size: 1.5rem;
     }
+
+	#contact h2 {
+		font-size: 1rem;
+	}
 
 	/* Home Section */
 	.short-desc {
@@ -508,12 +553,6 @@ a {
 		100% { margin-top: 0; }
 	}
 
-    /* Further Reduce Card Grid Size */
-    .card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 5px;
-    }
-
     /* Further Simplify Menu */
     .nav-content:last-child ul a {
         font-size: 1.5rem;
@@ -529,13 +568,30 @@ a {
         display: none;
     }
 
-	.card-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller cards */
-        gap: 10px; /* Smaller gap between cards */
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
     }
 
 	.brand-grid {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.services-container {
+		gap: 15px;
+	  }
+	
+	.service-card {
+		flex: 1 1 calc(50% - 20px); /* Two cards per row */
+	}
+
+	#footer {
+		font-size: 12px;
+	}
+
+	.socials img {
+		width: 20px;
+		height: 20px;
 	}
 }
 
@@ -565,21 +621,6 @@ a {
         z-index: 10;
     }
 
-   /* Fullscreen menu when toggled */
-   #menu-toggle:checked ~ .nav-content:last-child ul {
-	display: flex;
-	position: fixed; /* Fullscreen overlay */
-	top: 0;
-	left: 0;
-	width: 100vw; /* Full width */
-	height: 100vh; /* Full height */
-	background-color: black; /* Overlay background */
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	z-index: 15;
-}
-
 	/* Styling for menu links */
 	.nav-content:last-child ul a {
 		font-size: 3.5rem; /* Larger font size for better scaling */
@@ -590,6 +631,26 @@ a {
     .nav-content:last-child ul li {
         padding: 15px 0;
     }
+
+
+   /* Fullscreen menu when toggled */
+   #menu-toggle:checked ~ .nav-content:last-child ul {
+		display: flex;
+		position: fixed; /* Fullscreen overlay */
+		top: 0;
+		left: 0;
+		width: 100vw; /* Full width */
+		height: 100vh; /* Full height */
+		background-color: black; /* Overlay background */
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 15;
+	}
+
+	#home, #about, #works, #brands{
+		min-height: 60vh; /* Adjusts to full screen height */
+	}
 
     /* Hide Profile Picture */
     #about-content-right {
@@ -636,6 +697,14 @@ a {
 
 	.brand-grid {
 		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.services-container {
+		gap: 30px;
 	  }
+	
+	.service-card {
+		flex: 1 1 calc(25% - 20px); /* Four cards per row */
+	}
 
 }
