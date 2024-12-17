@@ -541,6 +541,12 @@ a {
 		min-height: 50vh; /* Adjusts to full screen height */
 	}
 
+	.skill-btn img {
+		width: 80px; /* Adjust image size */
+		height: 80px;
+		border-radius: 5px;
+	}
+
 	#contact {
 		min-height: 300px; /* Adjusts to full screen height */
 	}
