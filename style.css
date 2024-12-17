@@ -123,10 +123,9 @@ a {
 }
 
 /* Spacing between sections */
-#home, #about, #works, #brands{
+#home, #about, #works{
     width: 100%;
 	margin: auto;
-    margin-bottom: 40px; /* Adds space below the section */
     display: flex;
     justify-content: center; /* Centers content horizontally */
     min-height: 100vh; /* Adjusts to full screen height */
@@ -269,10 +268,20 @@ a {
 	color: white;
 	font-weight: bold;
 	border-style: none;
+	border-radius: 10px;
+}
+
+.skill-btn img {
+    width: 100px; /* Adjust image size */
+    height: 100px;
+    object-fit: contain;
+	border-radius: 10px;
 }
 
 /* Works Section */
-
+#works {
+	margin-bottom: 5%;
+}
 /* Grid Layout */
 .card-grid {
     display: grid;
@@ -359,6 +368,14 @@ a {
     text-transform: uppercase;
 }
 
+#brands {
+	width: 100%;
+	margin: auto;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    min-height: 60vh; /* Adjusts to full screen height */
+}
+
 .brand-grid {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
@@ -411,6 +428,12 @@ a {
 }  
 
 /* Contact Section */
+#contact {
+	margin: auto;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+}
+
 #contact-content {
 	margin: 5%;
 	padding: 5%;
@@ -514,7 +537,8 @@ a {
     }
 
 	#home, #about, #works, #brands{
-		min-height: 40vh; /* Adjusts to full screen height */
+		margin-bottom: 20px;
+		min-height: 50vh; /* Adjusts to full screen height */
 	}
 
 	#contact {
@@ -571,6 +595,22 @@ a {
     .card-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 10px;
+    }
+
+	.bottom-section {
+        padding: 10px; /* Reduce padding for smaller space */
+        flex-wrap: wrap; /* Allow content to wrap if needed */
+    }
+
+    .effect-name {
+        font-size: 12px; /* Reduce font size */
+        line-height: 1.2; /* Adjust line height */
+        white-space: normal; /* Allow text to wrap */
+    }
+
+    .effect-icon {
+        width: 30px; /* Adjust size for small screens */
+        height: 30px;
     }
 
 	.brand-grid {
