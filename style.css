@@ -123,7 +123,7 @@ a {
 }
 
 /* Spacing between sections */
-#home, #about, #works{
+#home, #about, #works, #brands{
     width: 100%;
 	margin: auto;
     display: flex;
@@ -137,7 +137,7 @@ a {
     max-width: 1200px; /* Ensures the content doesn't stretch too much */
 }
 
-#about h1, #works h1, #brands h1, #services h1 {
+#about h1, #works h1, #brands h1, #press h1, #services h1 {
 	text-align: center;
     font-size: 2.5rem;
     margin-bottom: 5%;
@@ -389,6 +389,63 @@ a {
 	height: auto;
 }
 
+/* Press Section */
+.press-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+  }
+  
+.press-card {
+	background-color: #111; /* Darker black for card */
+	border-radius: 20px;
+	width: 300px;
+	text-align: center;
+	padding: 15px;
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+	transition: transform 0.3s ease-in-out;
+	height: fit-content;
+}
+  
+.press-card:hover {
+	transform: translateY(-10px);
+}
+  
+.press-card-image {
+	width: 100%;
+	border-radius: 10px;
+}
+  
+.press-title {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+  
+.press-description {
+	font-size: 0.9em;
+	line-height: 1.5;
+	width: 90%;
+	margin: auto;
+	margin-bottom: 15px;
+	text-align: justify;
+}
+  
+.see-more {
+	background-color: #444;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+  
+.see-more:hover {
+	background-color: #666;
+}
+
 /* Services Section */
 #services {
 	text-align: center;
@@ -536,7 +593,7 @@ a {
         z-index: 10;
     }
 
-	#home, #about, #works, #brands{
+	#home, #about, #works, #brands, #press{
 		margin-bottom: 20px;
 		min-height: 50vh; /* Adjusts to full screen height */
 	}
@@ -551,7 +608,7 @@ a {
 		min-height: 300px; /* Adjusts to full screen height */
 	}
 
-	#about h1, #works h1, #brands h1, #services h1, #contact h1 {
+	#about h1, #works h1, #brands h1, #press h1, #services h1, #contact h1 {
         font-size: 1.5rem;
     }
 
@@ -694,7 +751,7 @@ a {
 		z-index: 15;
 	}
 
-	#home, #about, #works, #brands{
+	#home, #about, #works, #brands, #press{
 		min-height: 60vh; /* Adjusts to full screen height */
 	}
 
