@@ -603,17 +603,9 @@ a {
 		border-radius: 5px;
 	}
 
-	#contact {
-		min-height: 300px; /* Adjusts to full screen height */
-	}
-
 	#about h1, #works h1, #brands h1, #press h1, #services h1, #contact h1 {
         font-size: 1.5rem;
     }
-
-	#contact h2 {
-		font-size: 1rem;
-	}
 
 	/* Home Section */
 	.short-desc {
@@ -625,7 +617,7 @@ a {
 		display: inline-block;
 		height: 24px;
 		overflow: hidden;
-		font-size: 24px;
+		font-size: 22px;
 		line-height: 24px;
 	}
 
@@ -685,6 +677,14 @@ a {
 	
 	.service-card {
 		flex: 1 1 calc(50% - 20px); /* Two cards per row */
+	}
+
+	#contact {
+		min-height: 300px; /* Adjusts to full screen height */
+	}
+
+	#contact h2 {
+		font-size: 1rem;
 	}
 
 	#footer {
